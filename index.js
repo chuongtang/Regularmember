@@ -106,13 +106,14 @@
             phone: contactArray.HomePhone,
             birthdate: readableDate,
             postalCode: contactArray.MailingPostalCode,
+            fullName: contactArray.Name,
           };
 
 
           // Map JSON keys to input IDs
           const idMap = {
-            lastName: "p1_Last_Name",
-            firstName: "p1_First_Name",
+            fullName: "fullName",
+            // firstName: "p1_First_Name",
             street: "p1_Street",
             email: "p1_Email",
             city: "p1_City",
