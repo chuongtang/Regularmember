@@ -5,30 +5,30 @@
     <meta charset="UTF-8">
     <title>YMCA Calgary - Fillable Membership Agreement</title>
     <link rel="stylesheet" href="index.css">
-    index.js</script>
+    <script src="index.js"></script>
 </head>
 
 <body>
- <button id="load-btn" class="floating-Fill-btn" type="button">FILL🚀</button>
+    <button id="load-btn" class="floating-Fill-btn" type="button">PASTE🚀</button>
     <div class="page" id="page1">
         <input type="text" id="fullName" class="fill-input f-name" placeholder="Full Name">
-        <input type="text" class="fill-input f-address" placeholder="Address">
-        <input type="text" class="fill-input f-phone" placeholder="Phone">
-        <input type="text" class="fill-input f-email" placeholder="Email">
-        <input type="text" class="fill-input f-mtype" placeholder="Type">
-        <input type="text" class="fill-input f-pad-amt" placeholder="">
-        <input type="text" class="fill-input f-pad-day" placeholder="DD">
+        <input type="text" id="f-address" class="fill-input f-address" placeholder="Address">
+        <input type="text" id="f-phone" class="fill-input f-phone" placeholder="Phone">
+        <input type="text" id="f-email" class="fill-input f-email" placeholder="Email">
+        <!-- <input type="text" id="f-address"class="fill-input f-mtype" placeholder="Type"> -->
+        <!-- <input type="text" id="f-amount"class="fill-input f-pad-amt" placeholder=""> -->
+        <input type="text" id="f-paydate" class="fill-input f-pad-day" placeholder="DD">
     </div>
 
     <div class="page" id="page2">
-        <input type="text" class="fill-input f-date1" placeholder="YYYY-MM-DD">
-        <input type="text" class="fill-input f-date2" placeholder="YYYY-MM-DD">
-        <input type="text" class="fill-input f-staff" placeholder="Staff Name">
+        <input type="text" id="f-date1" class="fill-input f-date1" placeholder="YYYY-MM-DD" value="">
+        <input type="text" id="f-date2" class="fill-input f-date2" placeholder="YYYY-MM-DD" value="">
+        <input type="text" id="f-staff" class="fill-input f-staff" placeholder="Staff Name">
     </div>
- <button class="floating-print-btn" type="button" aria-label="Print this page" title="Print this page"
-      onclick="window.print()">
-      <!-- Simple icon (emoji) — replace with SVG if you prefer -->
-      🖨️ <span>Print</span>
+    <button class="floating-print-btn" type="button" aria-label="Print this page" title="Print this page"
+        onclick="window.print()">
+        <!-- Simple icon (emoji) — replace with SVG if you prefer -->
+        🖨️ <span>Print</span>
     </button>
 </body>
 
