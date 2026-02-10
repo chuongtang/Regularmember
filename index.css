@@ -209,6 +209,33 @@ body {
     /* darker blue on hover */
 }
 
+.floating-howto-btn {
+    position: fixed;
+    /* keep it floating */
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 9999;
+    /* ensure it stays above content */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 999px;
+    /* pill shape */
+    background: #37d191;
+    /* blue */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.floating-howto-btn:hover {
+    background: #084d06;
+   
+}
+
 /* Hide the button in print */
 @media print {
     .floating-print-btn {
@@ -216,6 +243,9 @@ body {
     }
 
     .floating-Fill-btn {
+        display: none !important;
+    }
+    .floating-howto-btn {
         display: none !important;
     }
 
