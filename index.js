@@ -189,10 +189,66 @@ async function autoFillFromClipboard() {
     if (state.lastFocusedElement) state.lastFocusedElement.focus();
     state.lastFocusedElement = null;
     state.handlers = {};
-    
+
   }
 
   function confirmSelection() {
+    function getRate(memberType) {
+      switch (memberType) {
+        case 'Adult (26-64)':
+          return 90.21;
+        case '+ONE Adult (26-64)':
+          return 55.20;
+        case 'Senior (65+)':
+          return 58.95
+        case '+ONE Senior (65+)':
+          return 55.20;
+        case 'Young Adult (18-25)':
+          return 71.25;
+        case '+ONE Young Adult (18-25)':
+          return 43.55;
+        case 'Youth (12-17)':
+          return 43.90;
+        case '+ONE Youth (12-17)':
+          return 11.55;
+        case 'Child (10-11)':
+          return 38.10;
+        case '+ONE Child (10-11)':
+          return 9.96;
+        default:
+          return ' ';
+      }
+    }
+
+    function getDayWithSuffix() {
+      const day = new Date().getDate();
+      const dayStr = day.toString().padStart(2, '0');
+
+      if (day >= 11 && day <= 13) {
+        return dayStr + 'th';
+      }
+
+      switch (day % 10) {
+        case 1: return dayStr + 'st';
+        case 2: return dayStr + 'nd';
+        case 3: return dayStr + 'rd';
+        default: return dayStr + 'th';
+      }
+    }
+
+    function getPayDate(billing) {
+      switch (billing) {
+        case 'today':
+          return getDayWithSuffix();
+        case 'eft4':
+          return '04th';
+        case 'eft17':
+          return '17th'
+        default:
+          return getDayWithSuffix();
+      }
+    }
+
     const { form } = state.els;
     const data = new FormData(form);
     console.log(data)
@@ -213,8 +269,8 @@ async function autoFillFromClipboard() {
     const evt = new CustomEvent('options:selected', { detail: payload });
     window.dispatchEvent(evt);
 
-    document.getElementById("f-amount").value = getRate(plan);
-    document.getElementById("f-paydate").value = getPayDate(billing);
+    document.getElementById("f-amount").value = getRate(payload.plan);
+    document.getElementById("f-paydate").value = getPayDate(payload.billing);
     closeModal();
   }
 
@@ -380,60 +436,4 @@ window.addEventListener('options:selected', (e) => {
 // tiny helper
 function capitalize(s) {
   return (s || '').charAt(0).toUpperCase() + (s || '').slice(1);
-}
-function getRate(memberType) {
-  switch (memberType) {
-    case 'Adult (26-64)':
-      return 90.21;
-    case '+ONE Adult (26-64)':
-      return 55.20;
-    case 'Senior (65+)':
-      return 58.95
-    case '+ONE Senior (65+)':
-      return 55.20;
-    case 'Young Adult (18-25)':
-      return 71.25;
-    case '+ONE Young Adult (18-25)':
-      return 43.55;
-    case 'Youth (12-17)':
-      return 43.90;
-    case '+ONE Youth (12-17)':
-      return 11.55;
-    case 'Child (10-11)':
-      return 38.10;
-    case '+ONE Child (10-11)':
-      return 9.96;
-    default:
-      return ' ';
-  }
-}
-
-
-function getDayWithSuffix() {
-  const day = new Date().getDate();
-  const dayStr = day.toString().padStart(2, '0');
-
-  if (day >= 11 && day <= 13) {
-    return dayStr + 'th';
-  }
-
-  switch (day % 10) {
-    case 1: return dayStr + 'st';
-    case 2: return dayStr + 'nd';
-    case 3: return dayStr + 'rd';
-    default: return dayStr + 'th';
-  }
-}
-
-function getPayDate(billing) {
-  switch (billing) {
-    case 'today':
-      return getDayWithSuffix();
-    case 'eft4':
-      return '04th';
-    case 'eft17':
-      return '17th'
-    default:
-      return getDayWithSuffix();
-  }
 }
