@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YMCA Calgary - Fillable Membership Agreement</title>
+    <title>Regular Membership Form</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="favicon.ico">
     <script src="index.js"></script>
 </head>
 
@@ -17,13 +18,85 @@
         <input type="text" id="f-email" class="fill-input f-email" placeholder="Email">
         <!-- <input type="text" id="f-address"class="fill-input f-mtype" placeholder="Type"> -->
         <input type="text" id="f-amount" class="fill-input f-pad-amt" placeholder="...">
-        <input type="text" id="f-paydate" class="fill-input f-pad-day" placeholder="DD">
-        <input type="text" class="fill-input f-mtype" placeholder="...">
-        <input type="text" class="fill-input f-pad-amt" placeholder="..">
+        <input type="text" id="f-paydate" name=""billing_cycle" class="fill-input f-pad-day" placeholder="DD">
+        <input type="text" id="membershipTypes" name="memberTypes" class="fill-input f-mtype" placeholder="...">
+        <input type="text" id="payAmount" name="payAmount" class="fill-input f-pad-amt" placeholder="..">
         <input type="text" class="fill-input f-joinFee" placeholder=" ">
     </div>
 
-    <div class="page" id="page2">
+
+    <!-- Trigger button (place where you want it) -->
+<button id="openOptionsBtn" class="btn" type="button">Choose Options</button>
+
+<!-- Modal (place near end of <body>) -->
+<div
+  id="optionsModalOverlay"
+  class="modal-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="optionsModalTitle"
+  aria-hidden="true"
+>
+  <div class="modal" tabindex="-1">
+    <header class="modal-header">
+      <h2 id="optionsModalTitle" class="modal-title">Select your options</h2>
+    </header>
+
+    <div class="modal-body">
+      <p class="muted" style="color: var(--muted); margin: 0 0 .75rem 0;">
+        Use the dropdowns below to configure your selection:
+      </p>
+
+      <!-- Your dropdowns -->
+      <form id="optionsForm" class="form-grid" aria-label="Options form">
+        <label class="field">
+          <span class="label">Plan</span>
+          <select name="plan" id="planSelect" required>
+            <option value="" disabled selected>Membership types...</option>
+            <option data-price="90.20 " value="Adult (26-64)">Adult (26-64)</option>
+            <option data-price="55.20" value="+ONE Adult (26-64)">+ONE Adult (26-64)</option>
+            <option data-price="58.95" value="Senior (65+)">Senior (65+)</option>
+            <option data-price="55.20" value="+ONE Senior (65+)">+ONE Senior (65+)</option>
+            <option data-price="71.25" value="Young Adult (18-25)">Young Adult (18-25)</option>
+            <option data-price="43.55" value="+ONE Young Adult (18-25)">+ONE Young Adult (18-25)</option>
+            <option data-price="43.90" value="Youth (12-17)">Youth (12-17)</option>
+            <option data-price="11.85" value="+ONE Youth (12-17)">+ONE Youth (12-17)</option>
+            <option data-price="38.10" value="Child (10-11)">Child (10-11)</option>
+            <option data-price="9.96" value="+ONE Child (10-11)">+ONE Child (10-11)</option>
+            <option data-price=" " value="manual">other options (enter manually...)</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label">Billing Date</span>
+          <select name="billing" id="billingSelect" required>
+            <option value="" disabled selected>Choose billing...</option>
+            <option value="today">Credit Card (today)</option>
+            <option value="eft4">EFT -  4th</option>
+            <option value="eft17">EFT -  17th</option>
+          </select>
+        </label>
+
+        <!-- <label class="field">
+          <span class="label">Region</span>
+          <select name="region" id="regionSelect">
+            <option value="" disabled selected>Choose region...</option>
+            <option value="na">North America</option>
+            <option value="eu">Europe</option>
+            <option value="apac">APAC</option>
+          </select>
+        </label> -->
+      </form>
+    </div>
+
+    <footer class="modal-footer">
+      <button type="button" class="btn secondary" id="cancelBtn">Cancel</button>
+      <button type="button" class="btn" id="confirmBtn">Confirm</button>
+    </footer>
+  </div>
+</div>
+
+      <div class="page" id="page2">
         <input type="text" id="f-date1" class="fill-input f-date1" placeholder="YYYY-MM-DD" value="">
         <input type="text" id="f-date2" class="fill-input f-date2" placeholder="YYYY-MM-DD" value="">
         <input type="text" id="f-staff" class="fill-input f-staff" placeholder="Staff Name">
@@ -39,6 +112,8 @@
         <!-- Simple icon (emoji) — replace with SVG if you prefer -->
         🌠 <span>HOW-TO?</span>
     </button>
+
+
 </body>
 
 </html>

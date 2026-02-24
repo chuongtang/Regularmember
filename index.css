@@ -145,22 +145,21 @@ body {
     left: 6.56in;
     width: 0.9in;
 }
-.f-joinFee{
+
+.f-joinFee {
     top: 5.8in;
     left: 2.75in;
     width: 0.6in;
 
 
 }
+
 .f-pad-day {
     top: 6.75in;
     left: 0.8in;
     width: 0.4in;
 }
 
-/* PAGE 2 FIELDS */
-/* .f-init2    { top: 2.30in; left: 0.65in; } X (Recourse Initial) */
-/* .f-init3    { top: 3.65in; left: 0.65in; } X (Cancellation Initial) */
 
 /* .f-sig-member { top: 6.25in; left: 0.75in; width: 4.2in; } */
 .f-date1 {
@@ -233,7 +232,7 @@ body {
 
 .floating-howto-btn:hover {
     background: #084d06;
-   
+
 }
 
 /* Hide the button in print */
@@ -245,10 +244,14 @@ body {
     .floating-Fill-btn {
         display: none !important;
     }
+
     .floating-howto-btn {
         display: none !important;
     }
 
+    #openOptionsBtn {
+        display: none !important;
+    }
 
     body {
         color: rgb(119, 5, 5);
@@ -298,4 +301,156 @@ body {
 .floating-Fill-btn:hover {
     background: #1e40af;
     /* darker blue on hover */
+}
+
+
+:root {
+    --overlay: rgba(0, 0, 0, 0.5);
+    --modal-bg: #fff;
+    --border: #e5e7eb;
+    --primary: #299614;
+    --primary-contrast: #fff;
+    --text: #111827;
+    --muted: #6b7280;
+    --radius: 12px;
+}
+
+#openOptionsBtn {
+    position: fixed;
+    /* keep it floating */
+    right: 1rem;
+    top: 6rem;
+    background: rgba(26, 27, 27, 0.05);
+    /* Faint tint for visibility */
+    border: 1.5px solid var(--primary);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 16px;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.btn {
+    appearance: none;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--primary-contrast);
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:focus {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+.btn:hover {
+    filter: brightness(0.65);
+}
+
+.btn.secondary {
+    background: #fff;
+    color: #111827;
+    border: 1px solid var(--border);
+}
+
+.btn.secondary:hover {
+    background: #f3f4f6;
+}
+
+/* Modal container */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal {
+    background: var(--modal-bg);
+    width: min(560px, 95vw);
+    border-radius: var(--radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 1rem 1.25rem;
+    background: #f9fafb;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+    display: flex;
+    gap: .5rem;
+    justify-content: flex-end;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 1rem 1.25rem;
+}
+
+/* Form */
+.form-grid {
+    display: grid;
+    gap: .9rem;
+    grid-template-columns: 1fr;
+}
+
+.field {
+    display: grid;
+    gap: .35rem;
+}
+
+.label {
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+select {
+    appearance: none;
+    width: 100%;
+    padding: .6rem .75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M5 8l5 5 5-5" fill="none" stroke="%236b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right .6rem center;
+    background-size: 16px 16px;
+    font: inherit;
+    color: var(--text);
+}
+
+select:focus {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
+
+/* Optional: make multiple columns on wider screens */
+@media (min-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid .field:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    /* Region full width */
 }
