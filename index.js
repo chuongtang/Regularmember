@@ -196,7 +196,7 @@ async function autoFillFromClipboard() {
     function getRate(memberType) {
       switch (memberType) {
         case 'Adult (26-64)':
-          return 90.21;
+          return 90.20;
         case '+ONE Adult (26-64)':
           return 55.20;
         case 'Senior (65+)':

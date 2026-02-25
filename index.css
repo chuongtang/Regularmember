@@ -320,7 +320,8 @@ body {
     /* keep it floating */
     right: 1rem;
     top: 6rem;
-    background: rgba(26, 27, 27, 0.05);
+    background: rgba(5, 48, 48, 0.781);
+    /* background: rgba(26, 27, 27, 0.05); */
     /* Faint tint for visibility */
     border: 1.5px solid var(--primary);
     font-family: "Inter", Arial, sans-serif;
