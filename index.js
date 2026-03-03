@@ -215,6 +215,10 @@ async function autoFillFromClipboard() {
           return 38.10;
         case '+ONE Child (10-11)':
           return 9.96;
+          case 'Child (0-9)':
+          return 35.6;
+        case '+ONE Child (2-9)':
+          return 6.80;  
         default:
           return ' ';
       }
@@ -399,10 +403,7 @@ window.addEventListener('options:selected', (e) => {
 
   const memType = targetForm.querySelector('input[name="memberTypes"]');
   const billingField = targetForm.querySelector('input[name="billing_cycle"]');
-  // const regionField = targetForm.querySelector('select[name="ship_region"]');
   const priceField = targetForm.querySelector('input[name="payAmount"]');
-  // const discountField = targetForm.querySelector('input[name="discount_pct"]');
-  // const summaryField = targetForm.querySelector('textarea[name="order_summary"]');
 
 
   //  Assign values into the other form (only if fields exist)
