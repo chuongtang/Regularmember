@@ -214,7 +214,7 @@ async function autoFillFromClipboard() {
         case 'Child (10-11)':
           return 38.10;
         case '+ONE Child (10-11)':
-          return 9.96;
+          return 9.65;
           case 'Child (0-9)':
           return 35.6;
         case '+ONE Child (2-9)':
